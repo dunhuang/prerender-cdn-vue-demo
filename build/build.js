@@ -13,7 +13,7 @@ const webpackConfig = require('./webpack.prod.conf')
 
 const match = config.build.assetsPublicPath.match(/^(https?:)?\/\/([^\/]+)\/?$/)
 if(match && match[2]){
-  require('../proxyserver')(match[2], config.build.renderPort)
+  require('../proxyserver')(config.build.renderPort)
 }
 
 const spinner = ora('building for production...')

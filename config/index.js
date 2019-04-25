@@ -51,7 +51,7 @@ module.exports = {
     assetsRoot: path.resolve(__dirname, '../dist'),
     assetsSubDirectory: 'static',
     assetsPublicPath: '//www.cdn.com/',
-    renderPort: 11111,
+    renderPort: 13010,
     /**
      * Source Maps
      */

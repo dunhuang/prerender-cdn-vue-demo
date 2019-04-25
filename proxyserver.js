@@ -1,8 +1,10 @@
 var connect = require('express')
-var app = connect()
 var proxyMiddleware = require('http-proxy-middleware')
 
-function makeProxy(cdnHost, renderPort){
+var app = connect()
+
+
+function makeProxy(renderPort){
   
   var options = {
     target: `http://localhost:${renderPort}`, 
