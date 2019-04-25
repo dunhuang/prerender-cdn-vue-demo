@@ -1,7 +1,7 @@
 var { spawn } = require('child_process')
 var express = require('express')
 var proxyMiddleware = require('http-proxy-middleware')
-
+var pkg = require('./package.json')
 var app = express()
 
 function makeProxy (renderPort) {
@@ -13,7 +13,7 @@ function makeProxy (renderPort) {
   app.listen(80)
 }
 
-makeProxy(13010)
+makeProxy(pkg.renderPort)
 
 process.env.FORCE_COLOR = true
 const [str0, ...rest] = process.argv[2].split(/\s/)
@@ -27,5 +27,5 @@ cmd.stderr.on('data', function (data) {
 })
 
 cmd.on('exit', function (code) {
-  //process.exit(0)
+  process.exit(0)
 })

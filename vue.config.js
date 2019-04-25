@@ -1,5 +1,7 @@
 const path = require('path')
 const PrerenderSPAPlugin = require('prerender-spa-plugin')
+const pkg = require('./package.json')
+
 const Renderer = PrerenderSPAPlugin.PuppeteerRenderer
 
 const isProd = process.env.NODE_ENV === 'production'
@@ -11,7 +13,7 @@ module.exports = {
       new PrerenderSPAPlugin({
         staticDir: path.join(__dirname, 'dist'),
         server: {
-          port: 13010
+          port: pkg.renderPort
         },
         routes: [
           '/',

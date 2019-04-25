@@ -1,8 +1,8 @@
 # prerender-cdn-vue-demo
 
-> A Vue.js project run with prerender-spa-plugin and cdn public path based on vue-cli 3.0
+> A Vue.js project run with prerender-spa-plugin and cdn public path based on vue-cli 3.0.
 
-vue-cli 2.0 demo: https://github.com/dunhuang/prerender-cdn-vue-demo/tree/vue-cli-2.0
+（vue-cli 2.0 demo: https://github.com/dunhuang/prerender-cdn-vue-demo/tree/vue-cli-2.0）
 
 
 
@@ -13,14 +13,17 @@ add your cdn host to local machine's `/etc/hosts`:
 127.0.0.1 www.cdn.com
 ```
 
-set renderPort and assetsPublicPath in config/index.js
+edit .env.cdn:
 ```
-  build:{
-    //...
-    assetsPublicPath: '//www.cdn.com/',
-    renderPort: 13010,
-    //...
-  }
+NODE_ENV=production
+PUBLIC_PATH=//www.cdn.com/
+```
+
+add renderPort to package.json (or other config files which can exports constants):
+```
+  //...
+  "renderPort": 13010
+  //...
 ```
 Stop any local server which is listening 80.
 
@@ -32,13 +35,11 @@ Stop any local server which is listening 80.
 npm install
 
 # serve with hot reload at localhost:8080
-npm run dev
+npm start
 
 # build for production with minification
 npm run build
 
-# build for production and view the bundle analyzer report
-npm run build --report
+# build for production with cdn host
+npm run build:cdn
 ```
-
-For a detailed explanation on how things work, check out the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
