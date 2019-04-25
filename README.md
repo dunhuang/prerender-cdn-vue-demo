@@ -1,6 +1,10 @@
 # prerender-cdn-vue-demo
 
-> A Vue.js project run with prerender-spa-plugin and cdn public path.
+> A Vue.js project run with prerender-spa-plugin and cdn public path based on vue-cli 3.0
+
+vue-cli 2.0 demo: https://github.com/dunhuang/prerender-cdn-vue-demo/tree/vue-cli-2.0
+
+
 
 ## Before Build
 
