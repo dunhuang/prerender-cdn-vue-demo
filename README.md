@@ -9,6 +9,15 @@ add your cdn host to local machine's `/etc/hosts`:
 127.0.0.1 www.cdn.com
 ```
 
+set renderPort and assetsPublicPath in config/index.js
+```
+  build:{
+    //...
+    assetsPublicPath: '//www.cdn.com/',
+    renderPort: 13010,
+    //...
+  }
+```
 Stop any local server which is listening 80.
 
 
