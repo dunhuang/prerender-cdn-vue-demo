@@ -1,5 +1,4 @@
-var connect = require('connect')
-var vhost = require('vhost')
+var connect = require('express')
 var app = connect()
 var proxyMiddleware = require('http-proxy-middleware')
 
@@ -9,9 +8,8 @@ function makeProxy(cdnHost, renderPort){
     target: `http://localhost:${renderPort}`, 
     changeOrigin: true, 
   }
-  var proxy = proxyMiddleware(options)
-
-  app.use(vhost(cdnHost, proxy))
+  var proxy = proxyMiddleware('/', options)
+  app.use(proxy)
   app.listen(80)
 }
 
